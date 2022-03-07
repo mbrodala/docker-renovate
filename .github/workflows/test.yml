@@ -21,6 +21,8 @@ jobs:
 
     steps:
 
+      - uses: docker-practice/actions-setup-docker@1.0.8
+
       - name: test
         run: |
           docker info
