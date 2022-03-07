@@ -23,6 +23,6 @@ jobs:
 
       - name: test
         run: |
-          ls -la /var/run/docker.sock
           docker info
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock renovate/renovate:slim bash -c 'ls -la /var/run/docker.sock'
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock renovate/renovate:slim docker ps
