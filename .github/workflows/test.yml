@@ -18,6 +18,7 @@ jobs:
     steps:
 
       - name: test
+        continue-on-error: true
         run: |
           docker info
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock renovate/renovate:slim bash -c 'ls -la /var/run/docker.sock'
@@ -29,9 +30,10 @@ jobs:
 
     steps:
 
-      - uses: docker-practice/actions-setup-docker@1.0.8
+      - uses: docker-practice/actions-setup-docker@master
 
       - name: test
+        continue-on-error: true
         run: |
           docker info
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock renovate/renovate:slim bash -c 'ls -la /var/run/docker.sock'
